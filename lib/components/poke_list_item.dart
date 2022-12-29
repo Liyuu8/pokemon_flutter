@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/poke_detail.dart';
+
+import 'package:pokemon_flutter/page/poke_detail.dart';
 
 class PokeListItem extends StatelessWidget {
   const PokeListItem({super.key, required this.index});
@@ -23,12 +24,10 @@ class PokeListItem extends StatelessWidget {
         'Pikachu',
         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
-      subtitle: const Text(
-        '⚡️electric',
-      ),
+      subtitle: const Text('⚡️electric'),
       trailing: const Icon(Icons.navigate_next),
       onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => const PokeDetail())),
+          builder: (BuildContext context) => const PokeDetailPage())),
     );
   }
 }

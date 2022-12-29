@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/poke_list_item.dart';
+
+import 'package:pokemon_flutter/page/top.dart';
+import 'package:pokemon_flutter/utils/theme.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.system;
+
+  @override
+  void initState() {
+    super.initState();
+    loadThemeMode().then((value) => setState(() => _themeMode = value));
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: _themeMode,
       home: const TopPage(),
     );
-  }
-}
-
-class TopPage extends StatelessWidget {
-  const TopPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView.builder(
-      itemBuilder: (context, index) => PokeListItem(index: index),
-      itemCount: 10000,
-    ));
   }
 }

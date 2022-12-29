@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PokeDetail extends StatelessWidget {
-  const PokeDetail({super.key});
+class PokeDetailPage extends StatelessWidget {
+  const PokeDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,13 @@ class PokeDetail extends StatelessWidget {
           style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
         ),
         const Chip(
-          label: Text('electoric'),
+          label: Text(
+            'electoric',
+            style: TextStyle(color: Colors.black),
+            // color: Colors.yellow.computeLuminance() > 0.5
+            //     ? Colors.black
+            //     : Colors.white
+          ),
           backgroundColor: Colors.yellow,
         )
       ])),
