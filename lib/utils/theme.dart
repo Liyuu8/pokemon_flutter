@@ -8,8 +8,7 @@ Future<void> saveThemeMode(ThemeMode themeMode) async {
   pref.setString(themeMode.key, themeMode.name);
 }
 
-Future<ThemeMode> loadThemeMode() async {
-  final pref = await SharedPreferences.getInstance();
+ThemeMode loadThemeMode(SharedPreferences pref) {
   return convertStrToThemeMode(
       pref.getString(defaultTheme.key) ?? defaultTheme.name);
 }
