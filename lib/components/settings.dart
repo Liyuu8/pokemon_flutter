@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:pokemon_flutter/models/theme.dart';
+import 'package:pokemon_flutter/models/notifier/theme.dart';
 import 'package:pokemon_flutter/page/theme_mode_selection.dart';
 
 Map<ThemeMode, String> themeMap = {

@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 
-import 'package:pokemon_flutter/models/theme.dart';
+import 'package:pokemon_flutter/models/notifier/pokemon.dart';
+import 'package:pokemon_flutter/models/notifier/theme.dart';
 import 'package:pokemon_flutter/page/top.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final pref = await SharedPreferences.getInstance();
 
-  runApp(ChangeNotifierProvider(
-    create: (_) => ThemeModeNotifier(pref),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => ThemeModeNotifier(pref)),
+      ChangeNotifierProvider(create: (_) => PokemonNotifier()),
+    ],
     child: const MyApp(),
   ));
 }
